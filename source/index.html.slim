@@ -1,0 +1,88 @@
+---
+title: ¡Bienvenido a Historiana!
+---
+
+- images = %w[cabin cake circus game safe submarine]
+
+header.masthead.bg-light.text-center
+  .container.d-flex.align-items-center.flex-column.flex-md-row
+    img.masthead-avatar.mb-5.flex-md-shrink-0 alt="Ana" src="#{image_path('ana.jpg')}" /
+    .flex-md-grow-1
+      h1.masthead-heading.text-uppercase.mb-0 Historiana
+      =partial "divider", locals: { theme: "dark", icon: "fa-feather-alt"  }
+      p.masthead-subheading.font-weight-light.mb-0 Apasionada por crear hermosas historias
+
+section#portfolio.page-section.portfolio
+  .container
+    h2.page-section-heading.text-center.text-uppercase.text-secondary.mb-0 Portafolio
+    =partial "divider", locals: { icon: "fa-briefcase" }
+    .row.justify-content-center
+      - images.each_with_index do |name, index|
+        .col-md-6.col-lg-4.mb-5
+          .portfolio-item.mx-auto data-bs-target="#portfolioModal#{index + 1}" data-bs-toggle="modal"
+            .portfolio-item-caption.d-flex.align-items-center.justify-content-center.h-100.w-100
+              .portfolio-item-caption-content.text-center.text-white
+                i.fas.fa-plus.fa-3x
+            img.img-fluid alt="#{name}" src="#{image_path("portfolio/#{name}.png")}" /
+
+section#about.page-section.bg-secondary.text-white.mb-0
+  .container
+    h2.page-section-heading.text-center.text-uppercase.text-white Acerca de
+    =partial "divider", locals: { theme: "light", icon: "fa-user" }
+    .row
+      .col-lg-4.ms-auto
+        p.lead Como estudiante de humanidades de toda la vida, encuentro que la historia, el arte y la literatura son materias que fomentan mi autodesarrollo.
+      .col-lg-4.me-auto
+        p.lead Mi trabajo ideal es un entorno orientado a las personas donde pueda dedicarme a enseñar, escribir, traducir o corregir textos con la oportunidad de aprender, crecer y contribuir al mundo.
+    .text-center.mt-4
+      a.btn.btn-xl.btn-outline-light href="#"
+        i.fas.fa-download.me-2
+        | ¡Descarga mi CV!
+
+section#blog.page-section.bg-light.mb-0
+  .container
+    h2.page-section-heading.text-center.text-uppercase Blog
+    =partial "divider", locals: { theme: "dark", icon: "fa-pencil-alt" }
+    .row
+      .col-lg-12
+        p.lead Próximamente...
+
+section#contact.page-section
+  .container
+    h2.page-section-heading.text-center.text-uppercase.text-secondary.mb-0 Contáctame
+    =partial "divider", locals: { icon: "fa-paper-plane" }
+    .row.justify-content-center
+      .col-lg-8.col-xl-7
+        form
+          .form-floating
+            input#inputName.form-control placeholder=("Ingresa tu nombre...") type="text" /
+            label for="inputName"  Nombre
+          .form-floating
+            input#inputEmail.form-control placeholder=("Ingresa tu correo electrónico...") type="email" /
+            label for="inputEmail"  Correo electrónico
+          .form-floating
+            input#inputPhone.form-control placeholder=("Ingresa tu número telefónico...") type="tel" /
+            label for="inputPhone"  Número Telefónico
+          .form-floating
+            textarea#inputMessage.form-control placeholder=("Ingresa el mensaje...") style=("height: 12rem")
+            label for="inputMessage"  Mensaje
+          br/
+          button.btn.btn-primary.btn-xl type="submit"  Enviar
+
+  - %w[Cabaña Pastel Circo Videojuego Seguridad Submarino].each_with_index do |name, index|
+    .portfolio-modal.modal.fade aria-hidden="true" aria-labelledby="portfolioModal1" tabindex="-1" id="portfolioModal#{index + 1}"
+      .modal-dialog.modal-xl
+        .modal-content
+          .modal-header.border-0
+            button.btn-close aria-label="Close" data-bs-dismiss="modal" type="button"
+          .modal-body.text-center.pb-5
+            .container
+              .row.justify-content-center
+                .col-lg-8
+                  h2.portfolio-modal-title.text-secondary.text-uppercase.mb-0=name
+                  =partial "divider"
+                  img.img-fluid.rounded.mb-5 alt="#{images[index]}" src="#{image_path("portfolio/#{images[index]}.png")}" /
+                  p.mb-4 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia neque assumenda ipsam nihil, molestias magnam, recusandae quos quis inventore quisquam velit asperiores, vitae? Reprehenderit soluta, eos quod consequuntur itaque. Nam.
+                  button.btn.btn-primary data-bs-dismiss="modal" href="#!"
+                    i.fas.fa-times.fa-fw
+                    | Cerrar
