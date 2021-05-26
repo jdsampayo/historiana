@@ -1,5 +1,6 @@
 source 'https://rubygems.org'
 
+gem "slim"
 gem "execjs", platforms: :ruby
 gem "middleman", github: "middleman/middleman"
 gem 'middleman-autoprefixer', github: "middleman/middleman-autoprefixer"
