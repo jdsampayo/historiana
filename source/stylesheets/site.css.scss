@@ -202,7 +202,7 @@ html {
   }
 }
 
-.portfolio .portfolio-item {
+.gallery .gallery-item {
   cursor: pointer;
   position: relative;
   display: block;
@@ -210,7 +210,7 @@ html {
   border-radius: 0.5rem;
   overflow: hidden;
 
-  .portfolio-item-caption {
+  .gallery-item-caption {
     position: absolute;
     top: 0;
     left: 0;
@@ -222,27 +222,37 @@ html {
       opacity: 1;
     }
 
-    .portfolio-item-caption-content {
+    .gallery-item-caption-content {
       font-size: 1.5rem;
     }
   }
 }
 
-.portfolio-modal {
+.gallery-modal {
   .btn-close {
     color: #1abc9c;
     font-size: 2rem;
     padding: 1rem;
   }
 
-  .portfolio-modal-title {
-    font-size: 2.25rem;
-    line-height: 2rem;
+  .modal-body {
+    .gallery-modal-title {
+      font-size: 2.25rem;
+      line-height: 2rem;
+    }
+
+    h3 {
+      text-align: left;
+    }
+
+    p {
+      text-align: justify;
+    }
   }
 }
 
 @media (min-width: 992px) {
-  .portfolio-modal .portfolio-modal-title {
+  .gallery-modal .gallery-modal-title {
     font-size: 3rem;
     line-height: 2.5rem;
   }
