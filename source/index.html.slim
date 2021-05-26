@@ -12,16 +12,16 @@ header.masthead.bg-light.text-center
       =partial "divider", locals: { theme: "dark", icon: "fa-feather-alt"  }
       p.masthead-subheading.font-weight-light.mb-0 Apasionada por crear hermosas historias
 
-section#portfolio.page-section.portfolio
+section#portfolio.page-section.gallery
   .container
     h2.page-section-heading.text-center.text-uppercase.text-secondary.mb-0 Portafolio
     =partial "divider", locals: { icon: "fa-briefcase" }
     .row.justify-content-center
       - images.each_with_index do |name, index|
         .col-md-6.col-lg-4.mb-5
-          .portfolio-item.mx-auto data-bs-target="#portfolioModal#{index + 1}" data-bs-toggle="modal"
-            .portfolio-item-caption.d-flex.align-items-center.justify-content-center.h-100.w-100
-              .portfolio-item-caption-content.text-center.text-white
+          .gallery-item.mx-auto data-bs-target="#portfolioModal#{index + 1}" data-bs-toggle="modal"
+            .gallery-item-caption.d-flex.align-items-center.justify-content-center.h-100.w-100
+              .gallery-item-caption-content.text-center.text-white
                 i.fas.fa-plus.fa-3x
             img.img-fluid alt="#{name}" src="#{image_path("portfolio/#{name}.png")}" /
 
@@ -38,6 +38,19 @@ section#about.page-section.bg-secondary.text-white.mb-0
       a.btn.btn-xl.btn-outline-light href="#"
         i.fas.fa-download.me-2
         | ¡Descarga mi CV!
+
+section#certificates.page-section.gallery
+  .container
+    h2.page-section-heading.text-center.text-uppercase.text-secondary.mb-0 Certificados
+    =partial "divider", locals: { icon: "fa-medal" }
+    .row.justify-content-center
+      - certificates.each_with_index do |certificate, index|
+        .col-md-6.col-lg-4.mb-5
+          .gallery-item.mx-auto data-bs-target="#certificateModal#{index + 1}" data-bs-toggle="modal"
+            .gallery-item-caption.d-flex.align-items-center.justify-content-center.h-100.w-100
+              .gallery-item-caption-content.text-center.text-white
+                i.fas.fa-plus.fa-3x
+            =certificate_thumb(certificate[:keyword])
 
 section#blog.page-section.bg-light.mb-0
   .container
@@ -70,7 +83,7 @@ section#contact.page-section
           button.btn.btn-primary.btn-xl type="submit"  Enviar
 
   - %w[Cabaña Pastel Circo Videojuego Seguridad Submarino].each_with_index do |name, index|
-    .portfolio-modal.modal.fade aria-hidden="true" aria-labelledby="portfolioModal1" tabindex="-1" id="portfolioModal#{index + 1}"
+    .gallery-modal.modal.fade aria-hidden="true" aria-labelledby="portfolioModal#{index + 1}" tabindex="-1" id="portfolioModal#{index + 1}"
       .modal-dialog.modal-xl
         .modal-content
           .modal-header.border-0
@@ -79,10 +92,30 @@ section#contact.page-section
             .container
               .row.justify-content-center
                 .col-lg-8
-                  h2.portfolio-modal-title.text-secondary.text-uppercase.mb-0=name
-                  =partial "divider"
+                  h2.gallery-modal-title.text-secondary.text-uppercase.mb-0=name
+                  =partial "divider", locals: { icon: "fa-briefcase" }
                   img.img-fluid.rounded.mb-5 alt="#{images[index]}" src="#{image_path("portfolio/#{images[index]}.png")}" /
                   p.mb-4 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia neque assumenda ipsam nihil, molestias magnam, recusandae quos quis inventore quisquam velit asperiores, vitae? Reprehenderit soluta, eos quod consequuntur itaque. Nam.
+                  button.btn.btn-primary data-bs-dismiss="modal" href="#!"
+                    i.fas.fa-times.fa-fw
+                    | Cerrar
+
+
+  - certificates.each_with_index do |certificate, index|
+    .gallery-modal.modal.fade aria-hidden="true" aria-labelledby="certificateModal#{index + 1}" tabindex="-1" id="certificateModal#{index + 1}"
+      .modal-dialog.modal-xl
+        .modal-content
+          .modal-header.border-0
+            button.btn-close aria-label="Close" data-bs-dismiss="modal" type="button"
+          .modal-body.text-center.pb-5
+            .container
+              .row.justify-content-center
+                .col-lg-8
+                  h2.gallery-modal-title.text-secondary.text-uppercase.mb-0=certificate[:keyword].to_s.titleize
+                  =partial "divider", locals: { icon: "fa-medal" }
+                  =certificate_image(certificate[:keyword])
+                  h3 Objetivo
+                  p.mb-4=certificate[:description]
                   button.btn.btn-primary data-bs-dismiss="modal" href="#!"
                     i.fas.fa-times.fa-fw
                     | Cerrar
