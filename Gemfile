@@ -2,6 +2,8 @@ source 'https://rubygems.org'
 
 gem "slim"
 gem "execjs", platforms: :ruby
+gem 'oj' # faster JSON parser and object serializer
+gem "middleman-minify-html"
 gem "middleman", github: "middleman/middleman"
 gem 'middleman-autoprefixer', github: "middleman/middleman-autoprefixer"
 gem 'webrick'
