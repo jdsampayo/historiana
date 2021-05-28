@@ -16,3 +16,6 @@ bundle exec middleman server
 ```ruby
 bundle exec middleman build
 ```
+
+TODO:
+https://github.com/michaelwittig/middleman-example-multilingual

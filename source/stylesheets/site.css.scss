@@ -110,6 +110,11 @@ html {
     font-size: 80%;
     padding: 0.8rem;
   }
+
+  #navbarDropdownMenuLink {
+    padding-top: .75rem!important;
+    padding-bottom: .75rem!important;
+  }
 }
 
 @media (min-width: 992px) {
