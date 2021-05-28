@@ -1,7 +1,3 @@
----
-title: ¡Bienvenido a Historiana!
----
-
 - images = %w[cabin cake circus game safe submarine]
 
 header.masthead.bg-light.text-center
@@ -10,11 +6,11 @@ header.masthead.bg-light.text-center
     .flex-md-grow-1
       h1.masthead-heading.text-uppercase.mb-0 Historiana
       =partial "divider", locals: { theme: "dark", icon: "fa-feather-alt"  }
-      p.masthead-subheading.font-weight-light.mb-0 Apasionada por crear hermosas historias
+      p.masthead-subheading.font-weight-light.mb-0=t(:slogan)
 
-section#portfolio.page-section.gallery
+section#portfolio.page-section.portfolio
   .container
-    h2.page-section-heading.text-center.text-uppercase.text-secondary.mb-0 Portafolio
+    h2.page-section-heading.text-center.text-uppercase.text-secondary.mb-0=t(:portfolio)
     =partial "divider", locals: { icon: "fa-briefcase" }
     .row.justify-content-center
       - images.each_with_index do |name, index|
@@ -31,9 +27,9 @@ section#about.page-section.bg-secondary.text-white.mb-0
     =partial "divider", locals: { theme: "light", icon: "fa-user" }
     .row
       .col-lg-4.ms-auto
-        p.lead Como estudiante de humanidades de toda la vida, encuentro que la historia, el arte y la literatura son materias que fomentan mi autodesarrollo.
+        p.lead=t('about_text.primary')
       .col-lg-4.me-auto
-        p.lead Mi trabajo ideal es un entorno orientado a las personas donde pueda dedicarme a enseñar, escribir, traducir o corregir textos con la oportunidad de aprender, crecer y contribuir al mundo.
+        p.lead=t('about_text.secondary')
     .text-center.mt-4
       a.btn.btn-xl.btn-outline-light href="#"
         i.fas.fa-download.me-2

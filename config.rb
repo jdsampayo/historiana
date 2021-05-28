@@ -5,6 +5,7 @@ require "uglifier"
 activate :autoprefixer do |prefix|
   prefix.browsers = "last 2 versions"
 end
+activate :i18n, mount_at_root: :es, langs: %w[es en fr]
 
 # Layouts
 # https://middlemanapp.com/basics/layouts/

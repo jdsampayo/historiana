@@ -26,13 +26,23 @@ html lang="en"
         #navbarResponsive.collapse.navbar-collapse
           ul.navbar-nav.ms-auto
             li.nav-item.mx-0.mx-lg-1
-              a.nav-link.py-3.px-0.px-lg-3.rounded href="#portfolio" Portafolio
+              a.nav-link.py-3.px-0.px-lg-3.rounded href="#portfolio"=t(:portfolio)
             li.nav-item.mx-0.mx-lg-1
-              a.nav-link.py-3.px-0.px-lg-3.rounded href="#about" Acerca de
+              a.nav-link.py-3.px-0.px-lg-3.rounded href="#about"=t(:about)
             li.nav-item.mx-0.mx-lg-1
-              a.nav-link.py-3.px-0.px-lg-3.rounded href="#blog" Blog
+              a.nav-link.py-3.px-0.px-lg-3.rounded href="#blog"=t(:blog)
             li.nav-item.mx-0.mx-lg-1
-              a.nav-link.py-3.px-0.px-lg-3.rounded href="#contact" Contacto
+              a.nav-link.py-3.px-0.px-lg-3.rounded href="#contact"=t(:contact)
+            li.nav-item.dropdown
+              a#navbarDropdownMenuLink.nav-link.dropdown-toggle.py-2.px-0.px-lg-3.rounded.btn-lg aria-expanded="false" data-bs-toggle="dropdown" href="#" role="button"
+                i.fas.fa-globe
+              ul.dropdown-menu.dropdown-menu-dark aria-labelledby="navbarDropdownMenuLink"
+                li
+                  a.dropdown-item href="/" Español
+                li
+                  a.dropdown-item href="/en" English
+                li
+                  a.dropdown-item href="/fr" Français
     = yield
     footer.footer.text-center
       .container
