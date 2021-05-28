@@ -8,7 +8,7 @@ header.masthead.bg-light.text-center
       =partial "divider", locals: { theme: "dark", icon: "fa-feather-alt"  }
       p.masthead-subheading.font-weight-light.mb-0=t(:slogan)
 
-section#portfolio.page-section.portfolio
+section#portfolio.page-section.gallery
   .container
     h2.page-section-heading.text-center.text-uppercase.text-secondary.mb-0=t(:portfolio)
     =partial "divider", locals: { icon: "fa-briefcase" }
@@ -21,24 +21,23 @@ section#portfolio.page-section.portfolio
                 i.fas.fa-plus.fa-3x
             img.img-fluid alt="#{name}" src="#{image_path("portfolio/#{name}.png")}" /
 
-section#about.page-section.bg-secondary.text-white.mb-0
+section#about.page-section.gallery.bg-secondary.text-white.mb-0
   .container
-    h2.page-section-heading.text-center.text-uppercase.text-white Acerca de
+    h2.page-section-heading.text-center.text-uppercase.text-white=t(:about)
     =partial "divider", locals: { theme: "light", icon: "fa-user" }
     .row
       .col-lg-4.ms-auto
         p.lead=t('about_text.primary')
       .col-lg-4.me-auto
         p.lead=t('about_text.secondary')
-    .text-center.mt-4
+    /.text-center.mt-4
       a.btn.btn-xl.btn-outline-light href="#"
         i.fas.fa-download.me-2
         | ¡Descarga mi CV!
 
-section#certificates.page-section.gallery
-  .container
-    h2.page-section-heading.text-center.text-uppercase.text-secondary.mb-0 Certificados
-    =partial "divider", locals: { icon: "fa-medal" }
+    .divider-custom.divider-light
+      .divider-custom-icon
+        i.fas.fa-medal
     .row.justify-content-center
       - certificates.each_with_index do |certificate, index|
         .col-md-6.col-lg-4.mb-5
@@ -50,33 +49,33 @@ section#certificates.page-section.gallery
 
 section#blog.page-section.bg-light.mb-0
   .container
-    h2.page-section-heading.text-center.text-uppercase Blog
+    h2.page-section-heading.text-center.text-uppercase=t(:blog)
     =partial "divider", locals: { theme: "dark", icon: "fa-pencil-alt" }
     .row
       .col-lg-12
-        p.lead Próximamente...
+        p.lead=t(:soon)
 
 section#contact.page-section
   .container
-    h2.page-section-heading.text-center.text-uppercase.text-secondary.mb-0 Contáctame
+    h2.page-section-heading.text-center.text-uppercase.text-secondary.mb-0=t(:contact)
     =partial "divider", locals: { icon: "fa-paper-plane" }
     .row.justify-content-center
       .col-lg-8.col-xl-7
         form
           .form-floating
             input#inputName.form-control placeholder=("Ingresa tu nombre...") type="text" /
-            label for="inputName"  Nombre
+            label for="inputName"=t(:name)
           .form-floating
             input#inputEmail.form-control placeholder=("Ingresa tu correo electrónico...") type="email" /
-            label for="inputEmail"  Correo electrónico
+            label for="inputEmail"=t(:email)
           .form-floating
             input#inputPhone.form-control placeholder=("Ingresa tu número telefónico...") type="tel" /
-            label for="inputPhone"  Número Telefónico
+            label for="inputPhone"=t(:phone)
           .form-floating
             textarea#inputMessage.form-control placeholder=("Ingresa el mensaje...") style=("height: 12rem")
-            label for="inputMessage"  Mensaje
+            label for="inputMessage"=t(:message)
           br/
-          button.btn.btn-primary.btn-xl type="submit"  Enviar
+          button.btn.btn-primary.btn-xl type="submit"=t(:send)
 
   - %w[Cabaña Pastel Circo Videojuego Seguridad Submarino].each_with_index do |name, index|
     .gallery-modal.modal.fade aria-hidden="true" aria-labelledby="portfolioModal#{index + 1}" tabindex="-1" id="portfolioModal#{index + 1}"
@@ -114,4 +113,4 @@ section#contact.page-section
                   p.mb-4=certificate[:description]
                   button.btn.btn-primary data-bs-dismiss="modal" href="#!"
                     i.fas.fa-times.fa-fw
-                    | Cerrar
+                    =t(:close)

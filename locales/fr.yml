@@ -8,4 +8,14 @@ fr:
   about_text:
     primary: "En tant qu'étudiant en sciences humaines tout au long de ma vie, je trouve que l'histoire, l'art et la littérature sont des sujets qui favorisent mon développement personnel."
     secondary: "Mon travail idéal est un environnement axé sur les gens où je peux me consacrer à l'enseignement, à l'écriture, à la traduction ou à la relecture avec l'opportunité d'apprendre, de grandir et de contribuer au monde."
-
+  name: "Nom"
+  email: "E-mail"
+  phone: "Téléphoner"
+  message: "Un Message"
+  send: "Envoyer"
+  soon: "Bientôt disponible..."
+  offer: "L'offre de travail"
+  close: "Fermer"
+  copyleft: "certains droits réservés"
+  mexico_city: "Mexico"
+  location: "Emplacement"
