@@ -9,10 +9,10 @@ module CertificatesHelper
   end
 
   def certificate_thumb(keyword)
-    image_tag("certificates/thumbs/#{keyword}.webp", alt: keyword.to_s.titleize, class: 'img-fluid')
+    image_tag("certificates/thumbs/#{keyword}.webp", alt: keyword.to_s.titleize, class: 'img-fluid', loading: "lazy")
   end
 
   def certificate_image(keyword)
-    image_tag("certificates/#{keyword}.webp", alt: keyword.to_s.titleize, class: 'img-fluid rounded mb-5')
+    image_tag("certificates/#{keyword}.webp", alt: keyword.to_s.titleize, class: 'img-fluid rounded mb-5', loading: "lazy")
   end
 end
