@@ -2,7 +2,7 @@
 
 header.masthead.bg-light.text-center
   .container.d-flex.align-items-center.flex-column.flex-md-row
-    img.masthead-avatar.mb-5.flex-md-shrink-0 alt="Ana" src="#{image_path('ana.jpg')}" /
+    img.masthead-avatar.mb-5.flex-md-shrink-0 alt=("Ana posing in front of monument") src="#{image_path('thumbs/ana.webp')}" srcset="#{image_path('thumbs/ana.webp')} 1x, #{image_path('ana.webp')} 2x" loading="lazy"/
     .flex-md-grow-1
       h1.masthead-heading.text-uppercase.mb-0 Historiana
       =partial "divider", locals: { theme: "dark", icon: "fa-feather-alt"  }
@@ -19,7 +19,7 @@ section#portfolio.page-section.gallery
             .gallery-item-caption.d-flex.align-items-center.justify-content-center.h-100.w-100
               .gallery-item-caption-content.text-center.text-white
                 i.fas.fa-plus.fa-3x
-            img.img-fluid alt="#{name}" src="#{image_path("portfolio/#{name}.png")}" /
+            img.img-fluid alt="#{name}" src="#{image_path("portfolio/#{name}.png")}" loading="lazy"/
 
 section#about.page-section.gallery.bg-secondary.text-white.mb-0
   .container
@@ -89,7 +89,7 @@ section#contact.page-section
                 .col-lg-8
                   h2.gallery-modal-title.text-secondary.text-uppercase.mb-0=name
                   =partial "divider", locals: { icon: "fa-briefcase" }
-                  img.img-fluid.rounded.mb-5 alt="#{images[index]}" src="#{image_path("portfolio/#{images[index]}.png")}" /
+                  img.img-fluid.rounded.mb-5 alt="#{images[index]}" src="#{image_path("portfolio/#{images[index]}.png")}" loading="lazy"/
                   p.mb-4 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia neque assumenda ipsam nihil, molestias magnam, recusandae quos quis inventore quisquam velit asperiores, vitae? Reprehenderit soluta, eos quod consequuntur itaque. Nam.
                   button.btn.btn-primary data-bs-dismiss="modal" href="#!"
                     i.fas.fa-times.fa-fw

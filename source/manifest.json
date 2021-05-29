@@ -1,0 +1,11 @@
+{
+    "name": "Historiana",
+    "short_name": "Historiana",
+    "icons": [{
+        "src": "favicon.png",
+        "sizes": "512x512"
+    }],
+    "background_color": "#ffffff",
+    "theme_color": "#ffffff",
+    "display": "fullscreen"
+}
