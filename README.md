@@ -1,9 +1,10 @@
 # Historiana
 
-Site for https://historiana.com.mx
+Site for: https://historiana.com.mx
 
-Based on template: https://startbootstrap.com/theme/freelancer
-Using framework: https://middlemanapp.com/
+- Based on template: https://startbootstrap.com/theme/freelancer
+- Using framework: https://middlemanapp.com/
+- Background photo by Jess Bailey Designs from Pexels: https://www.pexels.com/photo/gold-colored-paper-clips-near-notebook-and-pen-on-white-surface-1558689/
 
 ## Development
 
@@ -16,6 +17,3 @@ bundle exec middleman server
 ```ruby
 bundle exec middleman build
 ```
-
-TODO:
-https://github.com/michaelwittig/middleman-example-multilingual

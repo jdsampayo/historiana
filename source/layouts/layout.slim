@@ -11,15 +11,15 @@ html lang="en"
     = favicon_tag 'favicon.svg'
     link rel="alternate icon" href="#{image_path('favicon.png')}"
 
-    = stylesheet_link_tag "bootstrap", rel: "preload", as: "style", onload: "this.onload=null;this.rel='stylesheet'"
+    /= stylesheet_link_tag "bootstrap/bootstrap", rel: "preload", as: "style", onload: "this.onload=null;this.rel='stylesheet'"
     = stylesheet_link_tag "site", rel: "preload", as: "style", onload: "this.onload=null;this.rel='stylesheet'"
   body#page-top
-    nav#mainNav.navbar.navbar-expand-lg.bg-success.text-uppercase.fixed-top
+    nav#mainNav.navbar.navbar-expand-lg.bg-primary.text-uppercase.fixed-top
       .container
         a.navbar-brand href="#page-top"
           i.fa.fa-feather-alt>
           | Historiana
-        button.navbar-toggler.text-uppercase.font-weight-bold.bg-light.rounded aria-controls="navbarResponsive" aria-expanded="false" aria-label=("Toggle navigation") data-bs-target="#navbarResponsive" data-bs-toggle="collapse" type="button"
+        button.navbar-toggler.text-uppercase.font-weight-bold.bg-dark.rounded aria-controls="navbarResponsive" aria-expanded="false" aria-label=("Toggle navigation") data-bs-target="#navbarResponsive" data-bs-toggle="collapse" type="button"
           | Menu
           '
           i.fas.fa-bars

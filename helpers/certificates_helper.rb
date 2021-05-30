@@ -4,6 +4,10 @@ module CertificatesHelper
       {
         keyword: :como_escribir_con_eficacia,
         description: "Ampliar y expandir las habilidades de comunicación escrita. Aprender, de manera práctica y paso a paso, cómo mejorar la efectividad de los textos para que sean comprendidos rápidamente y se obtengan los resultados que se han propuesto. Ejemplos: Cuando mandas un e-mail, ¿recibes la respuesta adecuada a lo que preguntas o pides? ¿O por el contrario, te contestan otra cosa o solo a una parte de lo que has solicitado? ¿Consigues provocar con tus palabras las acciones que solicitas o los cambios que deseas? ¿Leen tus interlocutores tus textos hasta el final, o aprecias que los han abandonado sin terminar? Y aun más importante, ¿entienden bien los demás lo que quieres transmitir?"
+      },
+      {
+        keyword: :experiencia_de_usuario_esencial,
+        description: "Aprender a realizar análisis e investigaciones de usuario para conocerlo y entender sus objetivos y necesidades, implementar los resultados en métricas y conceptos que le ayuden a medir el grado de usabilidad de producto y así optimizarlo para una mejor experiencia. Conocer los puntos clave de la arquitectura de información, para crear una estructura que aporte facilidad en encontrar las herramientas necesarias dentro del sitio. Conocer los elementos básicos para crear un diseño de interfaz y un prototipo interactivo que serán la imagen de tu producto.",
       }
     ]
   end

@@ -1,12 +1,12 @@
 - images = %w[cabin cake circus game safe submarine]
 
-header.masthead.bg-light.text-center
+header.masthead.bg-light.text-center.bg-image
   .container.d-flex.align-items-center.flex-column.flex-md-row
-    img.masthead-avatar.mb-5.flex-md-shrink-0 alt=("Ana posing in front of monument") src="#{image_path('ana.webp')}" srcset="#{image_path('ana@3x.webp')} 3x, #{image_path('ana@2x.webp')} 2x, #{image_path('ana.webp')} 1x" loading="lazy" height='427' width='320'
-    .flex-md-grow-1
+    .flex-md-grow-1.order-1.order-md-0
       h1.masthead-heading.text-uppercase.mb-0 Historiana
       =partial "divider", locals: { theme: "dark", icon: "fa-feather-alt" }
       p.masthead-subheading.font-weight-light.mb-0=t(:slogan)
+    img.masthead-avatar.mb-5.flex-md-shrink-0.order-0.order-md-1 alt=("Ana posing in front of monument") src="#{image_path('ana.webp')}" srcset="#{image_path('ana@3x.webp')} 3x, #{image_path('ana@2x.webp')} 2x, #{image_path('ana.webp')} 1x" loading="lazy" height='427' width='320'
 
 section#portfolio.page-section.gallery
   .container
