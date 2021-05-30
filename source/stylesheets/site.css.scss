@@ -1,12 +1,85 @@
 @charset "UTF-8";
 
+// 1. Include functions first (so you can manipulate colors, SVGs, calc, etc)
+@import "bootstrap/functions";
+
+// 2. Include any default variable overrides here
+$success: #F8AFA6;
+$primary: #F7D4E0; //Rose Quartz
+$text-navbar: darken($primary, 20);
+$text-hover-navbar: #FD7AC0; //Hot Pink
+
+// 3. Include remainder of required Bootstrap stylesheets
+@import "bootstrap/variables";
+@import "bootstrap/mixins";
+@import "bootstrap/utilities";
+
+// 4. Include any optional Bootstrap components as you like
+@import "bootstrap/root";
+@import "bootstrap/reboot";
+@import "bootstrap/type";
+@import "bootstrap/images";
+@import "bootstrap/containers";
+@import "bootstrap/grid";
+@import "bootstrap/tables";
+@import "bootstrap/forms";
+@import "bootstrap/buttons";
+@import "bootstrap/transitions";
+@import "bootstrap/dropdown";
+@import "bootstrap/button-group";
+@import "bootstrap/nav";
+@import "bootstrap/navbar";
+@import "bootstrap/card";
+@import "bootstrap/accordion";
+@import "bootstrap/breadcrumb";
+@import "bootstrap/pagination";
+@import "bootstrap/badge";
+@import "bootstrap/alert";
+@import "bootstrap/progress";
+@import "bootstrap/list-group";
+@import "bootstrap/close";
+@import "bootstrap/toasts";
+@import "bootstrap/modal";
+@import "bootstrap/tooltip";
+@import "bootstrap/popover";
+@import "bootstrap/carousel";
+@import "bootstrap/spinners";
+@import "bootstrap/offcanvas";
+
+// Helpers
+@import "bootstrap/helpers";
+
+// Utilities
+@import "bootstrap/utilities/api";
+
+// 5. Add additional custom code here
+
+.btn-primary {
+  color: $text-navbar;
+  &:hover {
+    color: $text-hover-navbar;
+  }
+}
+
 @font-face {
   font-family: 'Montserrat';
   font-style: normal;
   font-weight: 700;
   font-display: swap;
-  src: url(montserrat.woff2) format('woff2');
+  src: font-url('montserrat.woff2') format('woff2');
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+.bg-image {
+  background-image: -webkit-image-set(
+    image-url('background.webp') 1x,
+    image-url('background@2x.webp') 2x,
+    image-url('background@3x.webp') 3x);
+  background-image: image-set(
+    image-url('background.webp') 1x,
+    image-url('background@2x.webp') 2x,
+    image-url('background@3x.webp') 3x);
+  background-size: cover;
 }
 
 html {
@@ -92,25 +165,25 @@ html {
   font-weight: 700;
 
   .navbar-brand {
-    color: #fff;
+    color: $text-navbar;
   }
 
   .navbar-nav {
     margin-top: 1rem;
 
     li.nav-item a.nav-link {
-      color: #fff;
+      color: $text-navbar;
 
       &:hover {
-        color: #1abc9c;
+        color: $text-hover-navbar;
       }
 
       &:active, &:focus {
-        color: #fff;
+        color: $text-navbar;
       }
 
       &.active {
-        color: #1abc9c;
+        color: $text-hover-navbar;
       }
     }
   }
