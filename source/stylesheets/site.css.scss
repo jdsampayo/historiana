@@ -73,18 +73,17 @@ $text-hover-navbar: #FD7AC0; //Hot Pink
 .bg-image {
   background-image: -webkit-image-set(
     image-url('background.webp') 1x,
-    image-url('background@2x.webp') 2x,
-    image-url('background@3x.webp') 3x);
+    image-url('background@2x.webp') 2x);
   background-image: image-set(
     image-url('background.webp') 1x,
-    image-url('background@2x.webp') 2x,
-    image-url('background@3x.webp') 3x);
+    image-url('background@2x.webp') 2x);
   background-size: cover;
 }
 
 html {
   height: 100%;
   scroll-padding-top: calc(4.5rem - 1px);
+  font-family: "Montserrat", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
 }
 
 .page-section {
@@ -161,7 +160,6 @@ html {
 #mainNav {
   padding-top: 1rem;
   padding-bottom: 1rem;
-  font-family: "Montserrat", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   font-weight: 700;
 
   .navbar-brand {
@@ -188,9 +186,8 @@ html {
     }
   }
 
-  .navbar-toggler {
-    font-size: 80%;
-    padding: 0.8rem;
+  button {
+    color: $text-hover-navbar;
   }
 
   #navbarDropdownMenuLink {
