@@ -10,8 +10,6 @@ html lang="en"
     title= current_page.data.title || "Historiana"
     = favicon_tag 'favicon.svg'
     link rel="alternate icon" href="#{image_path('favicon.png')}"
-    link rel="prefetch" href="#{image_path('background.webp')}"
-
     = stylesheet_link_tag "site", rel: "preload", as: "style", onload: "this.onload=null;this.rel='stylesheet'"
   body#page-top
     nav#mainNav.navbar.navbar-expand-lg.bg-primary.text-uppercase.fixed-top
@@ -62,5 +60,5 @@ html lang="en"
           i.far.fa-copyright.fa-rotate-180>
           | Historiana #{Time.now.year} #{t(:copyleft)}
     = javascript_include_tag "bootstrap", async: true
-    = javascript_include_tag "font_awesome", async: true
     = javascript_include_tag "site", async: true
+    = javascript_include_tag "font_awesome", async: true
