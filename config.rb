@@ -6,6 +6,17 @@ activate :autoprefixer do |prefix|
   prefix.browsers = "last 2 versions"
 end
 activate :i18n, mount_at_root: :es, langs: %w[es en fr]
+activate :blog do |blog|
+  blog.sources = "blog/{lang}/{year}-{title}.html"
+  blog.permalink = "blog/{lang}/{year}/{title}.html"
+  blog.layout = "blog_layout"
+  blog.summary_generator = Proc.new { |article, rendered, length, ellipsis|
+    summary = article.default_summary_generator(rendered, length, ellipsis)
+    f = Nokogiri::HTML.fragment(summary)
+    f.search('.//h1').remove
+    f.to_html
+  }
+end
 
 # Layouts
 # https://middlemanapp.com/basics/layouts/
