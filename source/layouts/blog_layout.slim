@@ -1,0 +1,67 @@
+doctype html
+html lang="en"
+  head
+    meta content=("text/html; charset=UTF-8") http-equiv="Content-Type"
+    meta charset="utf-8"
+    meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport"
+    meta content="Personal site, blog and portfolio of Historiana" name="description"
+    meta content="Ana Álvarez (Historiana)" name="author"
+    meta name="theme-color" content="#ffffff"
+    title= current_page.data.title || "Historiana"
+    = favicon_tag 'favicon.svg'
+    link rel="alternate icon" href="#{image_path('favicon.png')}"
+    = stylesheet_link_tag "site", rel: "preload", as: "style", onload: "this.onload=null;this.rel='stylesheet'"
+  body#page-top
+    nav#mainNav.navbar.navbar-expand-lg.bg-primary.text-uppercase.fixed-top
+      .container
+        a.navbar-brand href="#page-top"
+          i.fa.fa-feather-alt>
+          | Historiana
+        button.navbar-toggler.text-uppercase.font-weight-bold.rounded aria-controls="navbarResponsive" aria-expanded="false" aria-label=("Toggle navigation") data-bs-target="#navbarResponsive" data-bs-toggle="collapse" type="button"
+          i.fas.fa-bars
+        #navbarResponsive.collapse.navbar-collapse
+          ul.navbar-nav.ms-auto
+            li.nav-item.mx-0.mx-lg-1
+              a.nav-link.py-3.px-0.px-lg-3.rounded href="/#portfolio"=t(:portfolio)
+            li.nav-item.mx-0.mx-lg-1
+              a.nav-link.py-3.px-0.px-lg-3.rounded href="/#about"=t(:about)
+            li.nav-item.mx-0.mx-lg-1
+              a.nav-link.py-3.px-0.px-lg-3.rounded href="/#blog"=t(:blog)
+            li.nav-item.mx-0.mx-lg-1
+              a.nav-link.py-3.px-0.px-lg-3.rounded href="/#contact"=t(:contact)
+            li.nav-item.dropdown
+              a#navbarDropdownMenuLink.nav-link.dropdown-toggle.py-2.px-0.px-lg-3.rounded.btn-lg aria-expanded="false" data-bs-toggle="dropdown" href="#" role="button"
+                i.fas.fa-globe
+              ul.dropdown-menu.dropdown-menu-dark aria-labelledby="navbarDropdownMenuLink"
+                li
+                  a.dropdown-item href="/" Español
+                li
+                  a.dropdown-item href="/en" English
+                li
+                  a.dropdown-item href="/fr" Français
+    section#blog.page-section.bg-light.mb-0
+      .container
+        h1=@title
+        = yield
+    footer.footer.text-center
+      .container
+        .row
+          .col-lg-4.mb-5.mb-lg-0
+            h4.text-uppercase.mb-4=t(:location)
+            p.lead.mb-0=t(:mexico_city)
+          .col-lg-4.mb-5.mb-lg-0
+            h4.text-uppercase.mb-4=t(:offer)
+            a.btn.btn-outline-light.btn-social.mx-1 href="https://www.linkedin.com/in/ana-alvarez-vega/"
+              i.fab.fa-fw.fa-linkedin-in
+          .col-lg-4
+            h4.text-uppercase.mb-4 Historiana
+            p.lead.mb-0=t(:slogan)
+    .copyright.py-4.text-center.text-white
+      .container
+        small
+          span> Copyleft
+          i.far.fa-copyright.fa-rotate-180>
+          | Historiana #{Time.now.year} #{t(:copyleft)}
+    = javascript_include_tag "bootstrap", async: true
+    = javascript_include_tag "site", async: true
+    = javascript_include_tag "font_awesome", async: true

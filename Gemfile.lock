@@ -7,6 +7,15 @@ GIT
       middleman-core (>= 4.0.0)
 
 GIT
+  remote: https://github.com/middleman/middleman-blog.git
+  revision: 8153e77260b749a1859d4d6ab8177ca61e92cb0e
+  specs:
+    middleman-blog (4.0.3)
+      addressable (~> 2.3)
+      middleman-core (>= 4.0.0)
+      tzinfo (>= 0.3.0)
+
+GIT
   remote: https://github.com/middleman/middleman.git
   revision: dc1b2e8e5959667d9312b0ac5c30b9e980141856
   specs:
@@ -89,7 +98,11 @@ GEM
     middleman-minify-html (3.4.1)
       htmlcompressor (~> 0.2.0)
       middleman-core (>= 3.2)
+    mini_portile2 (2.5.3)
     minitest (5.14.4)
+    nokogiri (1.11.7)
+      mini_portile2 (~> 2.5.0)
+      racc (~> 1.4)
     oj (3.11.5)
     padrino-helpers (0.14.4)
       i18n (~> 0.6, >= 0.6.7)
@@ -99,6 +112,7 @@ GEM
     parallel (1.20.1)
     parslet (1.8.2)
     public_suffix (4.0.6)
+    racc (1.5.2)
     rack (2.2.3)
     rb-fsevent (0.11.0)
     rb-inotify (0.10.1)
@@ -135,7 +149,9 @@ DEPENDENCIES
   execjs
   middleman!
   middleman-autoprefixer!
+  middleman-blog!
   middleman-minify-html
+  nokogiri
   oj
   slim
   tzinfo-data

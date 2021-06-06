@@ -51,9 +51,19 @@ section#blog.page-section.bg-light.mb-0
   .container
     h2.page-section-heading.text-center.text-uppercase=t(:blog)
     =partial "divider", locals: { theme: "dark", icon: "fa-pencil-alt" }
-    .row
-      .col-lg-12
-        p.lead=t(:soon)
+
+    .row.justify-content-md-center
+      - blog.local_articles[0...5].each do |article|
+        .col-4
+          article
+            h1
+              a href="#{article.url}" = article.title.titleize
+            span.badge.bg-primary
+              time datetime=article.date.strftime("%FT%T")
+                = I18n.localize(article.date, format: '%e %B %Y')
+            = article.summary
+            a href="#{article.url}"
+              =t('read_more')
 
 section#contact.page-section
   .container
