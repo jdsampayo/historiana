@@ -7,8 +7,8 @@ activate :autoprefixer do |prefix|
 end
 activate :i18n, mount_at_root: :es, langs: %w[es en fr]
 activate :blog do |blog|
-  blog.sources = "blog/{lang}/{year}-{title}.html"
-  blog.permalink = "blog/{lang}/{year}/{title}.html"
+  blog.sources = "blog/{lang}/{year}-{month}-{day}-{title}.html"
+  blog.permalink = "blog/{lang}/{year}/{month}/{day}/{title}.html"
   blog.layout = "blog_layout"
   blog.summary_generator = Proc.new { |article, rendered, length, ellipsis|
     summary = article.default_summary_generator(rendered, length, ellipsis)
