@@ -12,8 +12,14 @@ Site for: https://historiana.com.mx
 bundle exec middleman server
 ```
 
+### Create WEBP images
+
+cwebp -q 75 -resize 792 0 certificate.png -o certificate.webp
+cwebp -q 75 -resize 396 0 certificate.png -o thumb.webp
+
 ## Build
 
 ```ruby
 bundle exec middleman build
 ```
+

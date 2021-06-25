@@ -8,6 +8,10 @@ module CertificatesHelper
       {
         keyword: :experiencia_de_usuario_esencial,
         description: "Aprender a realizar análisis e investigaciones de usuario para conocerlo y entender sus objetivos y necesidades, implementar los resultados en métricas y conceptos que le ayuden a medir el grado de usabilidad de producto y así optimizarlo para una mejor experiencia. Conocer los puntos clave de la arquitectura de información, para crear una estructura que aporte facilidad en encontrar las herramientas necesarias dentro del sitio. Conocer los elementos básicos para crear un diseño de interfaz y un prototipo interactivo que serán la imagen de tu producto.",
+      },
+      {
+        keyword: :fundamentos_de_la_narrativa,
+        description: "Mostrar los fundamentos del arte de crear una narración a partir de unos contenidos que se necesiten enseñar a un público expectante, ya sea mediante la expresión oral o la escrita. A partir de técnicas literarias, este curso introduce en el mundo del «Storytelling»: cómo narrar una historia coherente que el público sea capaz de recordar porque consigue transmitir emociones además de la información contenida en ella."
       }
     ]
   end

@@ -8,6 +8,7 @@ $success: #F8AFA6;
 $primary: #F7D4E0; //Rose Quartz
 $text-navbar: darken($primary, 20);
 $text-hover-navbar: #FD7AC0; //Hot Pink
+//#e77ea2
 
 // 3. Include remainder of required Bootstrap stylesheets
 @import "bootstrap/variables";
@@ -73,11 +74,25 @@ $text-hover-navbar: #FD7AC0; //Hot Pink
 .bg-image {
   background-image: -webkit-image-set(
     image-url('background.webp') 1x,
-    image-url('background@2x.webp') 2x);
+    image-url('background@2x.webp') 2x,
+    image-url('background@3x.webp') 3x);
   background-image: image-set(
     image-url('background.webp') 1x,
-    image-url('background@2x.webp') 2x);
+    image-url('background@2x.webp') 2x,
+    image-url('background@3x.webp') 3x);
   background-size: cover;
+}
+
+@include media-breakpoint-up(xl) {
+  .bg-image {
+    background-image: image-url('background@2x.webp');
+  }
+}
+
+@include media-breakpoint-up(xxl) {
+  .bg-image {
+    background-image: image-url('background@3x.webp');
+  }
 }
 
 html {
@@ -232,6 +247,10 @@ html {
   }
 }
 
+form {
+  font-size: 1rem;
+}
+
 .form-floating {
   input.form-control, textarea.form-control {
     font-size: 1.5rem;
@@ -321,12 +340,11 @@ html {
 
   .modal-body {
     .gallery-modal-title {
-      font-size: 2.25rem;
-      line-height: 2rem;
+      font-size: 1.25rem;
     }
 
-    h3 {
-      text-align: left;
+    h4 {
+      font-size: 1.20rem;
     }
 
     p {

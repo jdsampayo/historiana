@@ -1,25 +1,24 @@
-- images = %w[cabin cake circus game safe submarine]
-
 header.masthead.bg-light.text-center.bg-image
   .container.d-flex.align-items-center.flex-column.flex-md-row
     .flex-md-grow-1.order-1.order-md-0
       h1.masthead-heading.text-uppercase.mb-0 Historiana
       =partial "divider", locals: { theme: "dark", icon: "fa-feather-alt" }
       p.masthead-subheading.font-weight-light.mb-0=t(:slogan)
-    img.masthead-avatar.mb-5.flex-md-shrink-0.order-0.order-md-1 alt=("Portrait of Ana") src="#{image_path('ana.webp')}" srcset="#{image_path('ana@2x.webp')} 2x, #{image_path('ana.webp')} 1x" loading="lazy" height='427' width='320'
+    /img.masthead-avatar.mb-5.flex-md-shrink-0.order-0.order-md-1 alt=("Portrait of Ana") src="#{image_path('ana.webp')}" srcset="#{image_path('ana@2x.webp')} 2x, #{image_path('ana.webp')} 1x" loading="lazy" height='427' width='320'
+    img.masthead-avatar.mb-5.flex-md-shrink-0.order-0.order-md-1 alt=("Portrait of Ana") src="#{image_path('ana.svg')}" loading="lazy" height='427' width='320'
 
 section#portfolio.page-section.gallery
   .container
     h2.page-section-heading.text-center.text-uppercase.text-secondary.mb-0=t(:portfolio)
     =partial "divider", locals: { icon: "fa-briefcase" }
     .row.justify-content-center
-      - images.each_with_index do |name, index|
+      - portfolio.each_with_index do |keyword, index|
         .col-md-6.col-lg-4.mb-5
           .gallery-item.mx-auto data-bs-target="#portfolioModal#{index + 1}" data-bs-toggle="modal"
             .gallery-item-caption.d-flex.align-items-center.justify-content-center.h-100.w-100
               .gallery-item-caption-content.text-center.text-white
                 i.fas.fa-plus.fa-3x
-            img.img-fluid alt="#{name}" src="#{image_path("portfolio/thumbs/#{name}.webp")}" loading="lazy" width="400" height="289"
+            img.img-fluid alt="#{keyword}" src="#{image_path("portfolio/#{keyword}.svg")}" loading="lazy" width="400" height="289"
 
 section#about.page-section.gallery.bg-secondary.text-white.mb-0
   .container
@@ -35,11 +34,11 @@ section#about.page-section.gallery.bg-secondary.text-white.mb-0
         i.fas.fa-download.me-2
         | ¡Descarga mi CV!
 
-    .divider-custom.divider-light
+    /.divider-custom.divider-light
       .divider-custom-icon
         i.fas.fa-medal
-    .row.justify-content-center
-      - certificates.each_with_index do |certificate, index|
+    /.row.justify-content-center
+      - portfolio.each_with_index do |certificate, index|
         .col-md-6.col-lg-4.mb-5
           .gallery-item.mx-auto data-bs-target="#certificateModal#{index + 1}" data-bs-toggle="modal"
             .gallery-item-caption.d-flex.align-items-center.justify-content-center.h-100.w-100
@@ -53,10 +52,10 @@ section#blog.page-section.bg-light.mb-0
     =partial "divider", locals: { theme: "dark", icon: "fa-pencil-alt" }
 
     .row.justify-content-md-center
-      - blog.local_articles[0...5].each do |article|
+      - blog.articles_by_locale.each do |article|
         .col-4
           article
-            h1
+            h3
               a href="#{article.url}" = article.title.titleize
             span.badge.bg-primary
               time datetime=article.date.strftime("%FT%T")
@@ -71,23 +70,23 @@ section#contact.page-section
     =partial "divider", locals: { icon: "fa-paper-plane" }
     .row.justify-content-center
       .col-lg-8.col-xl-7
-        form
+        form action="https://getform.io/f/fc37d346-8d3a-4a14-bed7-491143e332c9" method="POST"
           .form-floating
-            input#inputName.form-control placeholder=("Ingresa tu nombre...") type="text"
-            label for="inputName"=t(:name)
+            input#name.form-control placeholder=("Ingresa tu nombre...") type="text" name="name"
+            label for="name"=t(:name)
           .form-floating
-            input#inputEmail.form-control placeholder=("Ingresa tu correo electrónico...") type="email"
-            label for="inputEmail"=t(:email)
+            input#email.form-control placeholder=("Ingresa tu correo electrónico...") type="email" name="email"
+            label for="email"=t(:email)
           .form-floating
-            input#inputPhone.form-control placeholder=("Ingresa tu número telefónico...") type="tel"
-            label for="inputPhone"=t(:phone)
+            input#phone.form-control placeholder=("Ingresa tu número telefónico...") type="tel" name="phone"
+            label for="phone"=t(:phone)
           .form-floating
-            textarea#inputMessage.form-control placeholder=("Ingresa el mensaje...") style=("height: 12rem")
-            label for="inputMessage"=t(:message)
+            textarea#text.form-control placeholder=("Ingresa el mensaje...") style=("height: 12rem") name="message"
+            label for="text"=t(:message)
           br
           button.btn.btn-primary.btn-xl type="submit"=t(:send)
 
-  - %w[Cabaña Pastel Circo Videojuego Seguridad Submarino].each_with_index do |name, index|
+  - portfolio.each_with_index do |keyword, index|
     .gallery-modal.modal.fade aria-hidden="true" aria-labelledby="portfolioModal#{index + 1}" tabindex="-1" id="portfolioModal#{index + 1}"
       .modal-dialog.modal-xl
         .modal-content
@@ -97,16 +96,16 @@ section#contact.page-section
             .container
               .row.justify-content-center
                 .col-lg-8
-                  h2.gallery-modal-title.text-secondary.text-uppercase.mb-0=name
+                  h3.gallery-modal-title.text-secondary.text-uppercase.mb-0=keyword
                   =partial "divider", locals: { icon: "fa-briefcase" }
-                  img.img-fluid.rounded.mb-5 alt="#{images[index]}" src="#{image_path("portfolio/#{images[index]}.webp")}" loading="lazy" height='515' width='713'
-                  p.mb-4 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia neque assumenda ipsam nihil, molestias magnam, recusandae quos quis inventore quisquam velit asperiores, vitae? Reprehenderit soluta, eos quod consequuntur itaque. Nam.
+                  =portfolio_thumb(keyword)
+                  p.mb-4=Faker::Quote.matz
                   button.btn.btn-primary data-bs-dismiss="modal" href="#!"
                     i.fas.fa-times.fa-fw
-                    | Cerrar
+                    =t(:close)
 
 
-  - certificates.each_with_index do |certificate, index|
+  /- certificates.each_with_index do |certificate, index|
     .gallery-modal.modal.fade aria-hidden="true" aria-labelledby="certificateModal#{index + 1}" tabindex="-1" id="certificateModal#{index + 1}"
       .modal-dialog.modal-xl
         .modal-content
@@ -116,10 +115,10 @@ section#contact.page-section
             .container
               .row.justify-content-center
                 .col-lg-8
-                  h2.gallery-modal-title.text-secondary.text-uppercase.mb-0=certificate[:keyword].to_s.titleize
+                  h3.gallery-modal-title.text-secondary.text-uppercase.mb-0=certificate[:keyword].to_s.titleize
                   =partial "divider", locals: { icon: "fa-medal" }
                   =certificate_image(certificate[:keyword])
-                  h3 Objetivo
+                  h4 Objetivo
                   p.mb-4=certificate[:description]
                   button.btn.btn-primary data-bs-dismiss="modal" href="#!"
                     i.fas.fa-times.fa-fw
