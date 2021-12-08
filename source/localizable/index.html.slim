@@ -30,10 +30,6 @@ section#about.page-section.gallery.bg-secondary.text-white.mb-0
         p.lead=t('about_text.primary')
       .col-lg-4.me-auto
         p.lead=t('about_text.secondary')
-    /.text-center.mt-4
-      a.btn.btn-xl.btn-outline-light href="#"
-        i.fas.fa-download.me-2
-        | ¡Descarga mi CV!
 
     .divider-custom.divider-light
       .divider-custom-icon
@@ -47,11 +43,10 @@ section#about.page-section.gallery.bg-secondary.text-white.mb-0
                 i.fas.fa-plus.fa-3x
             =certificate_thumb(certificate[:keyword])
 
-section#blog.page-section.bg-light.mb-0
+/section#blog.page-section.bg-light.mb-0
   .container
     h2.page-section-heading.text-center.text-uppercase=t(:blog)
     =partial "divider", locals: { theme: "dark", icon: "fa-pencil-alt" }
-
     .row.justify-content-md-center
       - blog.local_articles[0...5].each do |article|
         .col-4
@@ -104,7 +99,6 @@ section#contact.page-section
                   button.btn.btn-primary data-bs-dismiss="modal" href="#!"
                     i.fas.fa-times.fa-fw
                     | Cerrar
-
 
   - certificates.each_with_index do |certificate, index|
     .gallery-modal.modal.fade aria-hidden="true" aria-labelledby="certificateModal#{index + 1}" tabindex="-1" id="certificateModal#{index + 1}"
