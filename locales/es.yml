@@ -1,7 +1,7 @@
 ---
 es:
   slogan: "Apasionada por crear hermosas historias"
-  portfolio: "Portafolio"
+  portfolio: "UX Writer"
   about: "Acerca de"
   blog: "Blog"
   contact: "Contacto"
@@ -20,3 +20,28 @@ es:
   mexico_city: "Ciudad de México"
   location: "Ubicación"
   read_more: "Leer más..."
+  portfolio_text:
+    simplification:
+      title: "Simplificar el proceso"
+      description: "Demasiadas opciones pueden confundir y abrumar a los usuarios. Se debe brindar exactamente lo que necesitan en cada paso, ni más ni menos.
+      <figure>
+        <blockquote class='blockquote'>
+          <p>La perfección no se alcanza cuando no hay nada más que añadir, sino cuando no hay nada más que quitar.</p>
+        </blockquote>
+        <figcaption class='blockquote-footer'>
+          Antoine de Saint-Exupéry
+        </figcaption>
+      </figure>
+      "
+    seo:
+      title: "Optimización de motores de búsqueda"
+      description: "El primer paso hacia una gran experiencia de usuario. Si no se le dedica tiempo a perfeccionar el SEO de tu sitio, entonces todos los esfuerzos de redacción de UX son en vano. Después de todo, si las personas no pueden encontrarte, ¿cómo sabrán que tienes un producto excelente?"
+    landing:
+      title: "Página inicial (landings)"
+      description: "En el primer punto de contacto de los usuarios con tu marca, la UX debe tener un objetivo simple y claro: convertir al usuario. La página debe mantener el enfoque en esa única acción."
+    notifications:
+      title: "Notificaciones"
+      description: "A diferencia de otros canales de comunicación, las notificaciones automáticas y los mensajes de texto no brindan mucho espacio, así que el texto debe ser conciso y directo. Aunque es importante recordar que no se debe concentrar solo en ser breve, sino también en ser claro."
+    dashboard:
+      title: "Tableros"
+      description: "La información para inversionistas, dueños de su negocio e interesados debe ser concisa y usando los términos adecuados. Es de vital importancia transmitir de manera ordenada y transparente el mensaje pues este tipo de páginas sirven para la toma de decisiones. Ser demasiado técnicos o demasiado triviales podría desconcertar o confundir a los interesados."

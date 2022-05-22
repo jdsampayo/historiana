@@ -7,41 +7,41 @@ header.masthead.bg-light.text-center.bg-image
       =partial "divider", locals: { theme: "dark", icon: "fa-feather-alt" }
       p.masthead-subheading.font-weight-light.mb-0=t(:slogan)
     img.masthead-avatar.mb-5.flex-md-shrink-0.order-0.order-md-1 alt=("Portrait of Ana") src="#{image_path('ana.webp')}" srcset="#{image_path('ana@2x.webp')} 2x, #{image_path('ana.webp')} 1x" loading="lazy" height='427' width='320'
+    /img.masthead-avatar.mb-5.flex-md-shrink-0.order-0.order-md-1 alt=("Portrait of Ana") src="#{image_path('ana.svg')}" loading="lazy" height='427' width='320'
 
-section#portfolio.page-section.gallery
+section#about.page-section.gallery.bg-primary.mb-0
   .container
-    h2.page-section-heading.text-center.text-uppercase.text-secondary.mb-0=t(:portfolio)
-    =partial "divider", locals: { icon: "fa-briefcase" }
-    .row.justify-content-center
-      - images.each_with_index do |name, index|
-        .col-md-6.col-lg-4.mb-5
-          .gallery-item.mx-auto data-bs-target="#portfolioModal#{index + 1}" data-bs-toggle="modal"
-            .gallery-item-caption.d-flex.align-items-center.justify-content-center.h-100.w-100
-              .gallery-item-caption-content.text-center.text-white
-                i.fas.fa-plus.fa-3x
-            img.img-fluid alt="#{name}" src="#{image_path("portfolio/thumbs/#{name}.webp")}" loading="lazy" width="400" height="289"
-
-section#about.page-section.gallery.bg-secondary.text-white.mb-0
-  .container
-    h2.page-section-heading.text-center.text-uppercase.text-white=t(:about)
-    =partial "divider", locals: { theme: "light", icon: "fa-user" }
+    h2.page-section-heading.text-center.text-uppercase.text-success=t(:about)
+    =partial "divider", locals: { theme: "success", icon: "fa-user" }
     .row
       .col-lg-4.ms-auto
         p.lead=t('about_text.primary')
       .col-lg-4.me-auto
         p.lead=t('about_text.secondary')
-
-    .divider-custom.divider-light
+    /.divider-custom.divider-light
       .divider-custom-icon
         i.fas.fa-medal
-    .row.justify-content-center
-      - certificates.each_with_index do |certificate, index|
+    /.row.justify-content-center
+      - portfolio.each_with_index do |certificate, index|
         .col-md-6.col-lg-4.mb-5
           .gallery-item.mx-auto data-bs-target="#certificateModal#{index + 1}" data-bs-toggle="modal"
             .gallery-item-caption.d-flex.align-items-center.justify-content-center.h-100.w-100
               .gallery-item-caption-content.text-center.text-white
                 i.fas.fa-plus.fa-3x
             =certificate_thumb(certificate[:keyword])
+
+section#portfolio.page-section.gallery
+  .container
+    h2.page-section-heading.text-center.text-uppercase.mb-0=t(:portfolio)
+    =partial "divider", locals: { icon: "fa-briefcase" }
+    .row.justify-content-center
+      - portfolio.each_with_index do |item, index|
+        .col-sm-6.col-md-4.col-lg-3.mb-5
+          .gallery-item.mx-auto data-bs-target="#portfolioModal#{index + 1}" data-bs-toggle="modal"
+            .gallery-item-caption.d-flex.align-items-center.justify-content-center.h-100.w-100
+              .gallery-item-caption-content.text-center.text-white
+                i.fas.fa-plus.fa-3x
+            =portfolio_thumb(item)
 
 /section#blog.page-section.bg-light.mb-0
   .container
@@ -82,20 +82,33 @@ section#contact.page-section
           br
           button.btn.btn-primary.btn-xl type="submit"=t(:send)
 
-  - %w[Cabaña Pastel Circo Videojuego Seguridad Submarino].each_with_index do |name, index|
+  - Faker::UniqueGenerator.clear
+  - portfolio.each_with_index do |item, index|
     .gallery-modal.modal.fade aria-hidden="true" aria-labelledby="portfolioModal#{index + 1}" tabindex="-1" id="portfolioModal#{index + 1}"
-      .modal-dialog.modal-xl
+      .modal-dialog.modal-md.modal-dialog-centered.modal-dialog-scrollable
         .modal-content
-          .modal-header.border-0
+          .modal-body
+            .d-block.main-content
+              .text-center
+                =portfolio_thumb(item, width: '50%', height: 'auto')
+              /img.img-fluid alt="Image" data-pagespeed-url-hash="4148217882" onload="pagespeed.CriticalImages.checkImageForCriticality(this);" src="images/undraw_updated_rr85.svg" style=("background-color: #b2fcff;") /
+              .content-text.p-4
+                h3.mb-4=t("portfolio_text.#{item[:keyword]}.title")
+                p.mb-4=t("portfolio_text.#{item[:keyword]}.description")
+                .d-flex.justify-content-center
+                  button.btn.btn-primary data-bs-dismiss="modal" href="#!"
+                    i.fas.fa-times.fa-fw
+                    =t(:close)
+
+          /.modal-header.border-0
             button.btn-close aria-label="Close" data-bs-dismiss="modal" type="button"
-          .modal-body.text-center.pb-5
+          /.modal-body.text-center.pb-5
             .container
               .row.justify-content-center
                 .col-lg-8
-                  h2.gallery-modal-title.text-secondary.text-uppercase.mb-0=name
-                  =partial "divider", locals: { icon: "fa-briefcase" }
-                  img.img-fluid.rounded.mb-5 alt="#{images[index]}" src="#{image_path("portfolio/#{images[index]}.webp")}" loading="lazy" height='515' width='713'
-                  p.mb-4 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia neque assumenda ipsam nihil, molestias magnam, recusandae quos quis inventore quisquam velit asperiores, vitae? Reprehenderit soluta, eos quod consequuntur itaque. Nam.
+                  h3.gallery-modal-title.text-secondary.text-uppercase.mb-0=t("portfolio_text.#{item[:keyword]}.title")
+                  =portfolio_thumb(item)
+                  p.mb-4=t("portfolio_text.#{item[:keyword]}.description")
                   button.btn.btn-primary data-bs-dismiss="modal" href="#!"
                     i.fas.fa-times.fa-fw
                     | Cerrar

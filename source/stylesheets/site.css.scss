@@ -4,10 +4,18 @@
 @import "bootstrap/functions";
 
 // 2. Include any default variable overrides here
-$success: #F8AFA6;
 $primary: #F7D4E0; //Rose Quartz
+$success: darken($primary, 20);//#F8AFA6;
 $text-navbar: darken($primary, 20);
 $text-hover-navbar: #FD7AC0; //Hot Pink
+$hover-fill: rgba(0, 0, 0, 0.5);
+
+svg {
+  --color-1: $primary;
+  --color-2: $success;
+  --color-3: $text-navbar;
+  --color-4: $text-hover-navbar;
+}
 
 // 3. Include remainder of required Bootstrap stylesheets
 @import "bootstrap/variables";
@@ -140,6 +148,24 @@ html {
       color: #fff;
     }
   }
+
+  &.divider-success {
+    .divider-custom-line {
+      background-color: $success;
+    }
+
+    .divider-custom-icon {
+      color: $success;
+    }
+  }
+}
+
+.blockquote {
+  font-size: 0.75rem;
+}
+
+.blockquote-footer {
+  font-size: 0.65rem;
 }
 
 .btn-xl {
@@ -300,7 +326,7 @@ html {
     left: 0;
     transition: all 0.2s ease-in-out;
     opacity: 0;
-    background-color: rgba(26, 188, 156, 0.9);
+    background-color: $hover-fill;
 
     &:hover {
       opacity: 1;

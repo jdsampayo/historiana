@@ -11,10 +11,9 @@ activate :blog do |blog|
   blog.permalink = "blog/{lang}/{year}/{title}.html"
   blog.layout = "blog_layout"
   blog.summary_generator = Proc.new { |article, rendered, length, ellipsis|
-    summary = article.default_summary_generator(rendered, length, ellipsis)
-    f = Nokogiri::HTML.fragment(summary)
-    f.search('.//h1').remove
-    f.to_html
+    doc = Nokogiri::HTML.fragment(rendered)
+    abstract = doc.css("div.abstract p")
+    article.default_summary_generator(abstract.to_html, length, ellipsis)
   }
 end
 

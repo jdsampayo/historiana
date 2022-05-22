@@ -17,3 +17,5 @@ bundle exec middleman server
 ```ruby
 bundle exec middleman build
 ```
+
+https://latex.vercel.app/

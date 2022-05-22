@@ -1,5 +1,5 @@
 doctype html
-html lang="en"
+html.blog lang="en"
   head
     meta content=("text/html; charset=UTF-8") http-equiv="Content-Type"
     meta charset="utf-8"
@@ -10,7 +10,8 @@ html lang="en"
     title= current_page.data.title || "Historiana"
     = favicon_tag 'favicon.svg'
     link rel="alternate icon" href="#{image_path('favicon.png')}"
-    = stylesheet_link_tag "site", rel: "preload", as: "style", onload: "this.onload=null;this.rel='stylesheet'"
+    = stylesheet_link_tag "site"
+    = stylesheet_link_tag "blog"
   body#page-top
     nav#mainNav.navbar.navbar-expand-lg.bg-primary.text-uppercase.fixed-top
       .container

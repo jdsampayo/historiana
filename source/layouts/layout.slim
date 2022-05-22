@@ -10,7 +10,7 @@ html lang="en"
     title= current_page.data.title || "Historiana"
     = favicon_tag 'favicon.svg'
     link rel="alternate icon" href="#{image_path('favicon.png')}"
-    = stylesheet_link_tag "site", rel: "preload", as: "style", onload: "this.onload=null;this.rel='stylesheet'"
+    = stylesheet_link_tag "site"
   body#page-top
     nav#mainNav.navbar.navbar-expand-lg.bg-primary.text-uppercase.fixed-top
       .container
@@ -22,10 +22,10 @@ html lang="en"
         #navbarResponsive.collapse.navbar-collapse
           ul.navbar-nav.ms-auto
             li.nav-item.mx-0.mx-lg-1
-              a.nav-link.py-3.px-0.px-lg-3.rounded href="#portfolio"=t(:portfolio)
-            li.nav-item.mx-0.mx-lg-1
               a.nav-link.py-3.px-0.px-lg-3.rounded href="#about"=t(:about)
             li.nav-item.mx-0.mx-lg-1
+              a.nav-link.py-3.px-0.px-lg-3.rounded href="#portfolio"=t(:portfolio)
+            /li.nav-item.mx-0.mx-lg-1
               a.nav-link.py-3.px-0.px-lg-3.rounded href="#blog"=t(:blog)
             li.nav-item.mx-0.mx-lg-1
               a.nav-link.py-3.px-0.px-lg-3.rounded href="#contact"=t(:contact)
